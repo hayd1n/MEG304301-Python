@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Report Video
-.m4v
+*.m4v
