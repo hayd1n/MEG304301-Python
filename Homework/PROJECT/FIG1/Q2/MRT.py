@@ -7,7 +7,7 @@ class Station:
     車站
     """
 
-    def __init__(self, name: str, pos: tuple, nearby = []):
+    def __init__(self, name: str, pos: tuple[float, float], nearby = []):
         """
         車站
 
@@ -34,7 +34,7 @@ class Station:
         return self._name
 
     @property
-    def pos(self) -> tuple:
+    def pos(self) -> tuple[float, float]:
         """
         車站座標
 
@@ -68,7 +68,7 @@ class Path:
         self._stations = stations
 
     @staticmethod
-    def _minDistance(distances: dict) -> tuple:
+    def _minDistance(distances: dict) -> tuple[str, float]:
         """
         找出列表中尚未marked的最近車站
 
@@ -84,7 +84,7 @@ class Path:
             if data['distance'] < minVal and data['marked'] == False:
                 minIndex = name
                 minVal = data['distance']
-        return (minIndex, minVal)
+        return minIndex, minVal
 
     def findShortestPath(self, start_station: Station, end_station: Station) -> list:
         """
